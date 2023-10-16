@@ -2,15 +2,18 @@
 Authors: Belkacem, BEKKOUR
 Emails: BBEKKOUR23@ubishops.ca, belkacem.bekkour@worldlearningalgeria.org
 
+---
+
 +++++ BelkacemShell SHELL ++++
 
-Overview
+### Overview
 
 sshell is a custom shell written in C. Most of the functionalities implemented by this shell are using the sytem calls and POSIX API. Basically, the shell will have a parent main process that represent the shell session and it's always activated (runing), and this is where the more and the exit commands are ran. The second process is a child of the main process and will be created to execute the EXTERNAL COMMANDS, where this child process will replace the parent image process to make sure that the shell session process will always be runing. The third process handle the background commands execution, where the parent process won't wait for the termination of the background process (10s). So the shell session will will keep runing untill the termination.
 
+
 foreground commands are those that are executed in the foreground, meaning they are run synchronously, and the shell waits for their completion before allowing further input. Foreground commands are typically non-background commands that are not followed by an ampersand '&' character. In the code you provided, the following lines of code handle foreground commands. On the other hand, background commands are executed asynchronously, allowing the shell to continue accepting new input and running other commands without waiting for the background command to finish. Background commands are specified by appending an ampersand '&' character to the command, indicating that they should be run in the background. The code handles background commands by forking a child process to execute them, allowing the parent process to continue running the main loop without waiting for the background command to complete. The parent process can also track the status of background commands for later reporting.
 
-Implementation Details
+### Implementation Details
 -------------------------------------------------------------------------------------------------------------------------------------------
 - **Read configuration file (shconfig):** create a fuction "readConfig()" that open and read ("r") the configuration file using "fopen()", parse it  (if it exist) and then extract the HSIZE and the VSIZE paramters and close it using fclose(). If the file is does not exit create a new file using fopen(); ("w"), and wirite 2 lines using fprint(), "VSIZE 40" and "HSIZE 75" and close it at the end. If any problem occurs while creating the shconfig file, the "Error while creating shconfig: ERROR_MSG" will apear to the user using perror() function.
 ===========================================================================================================================================
@@ -40,7 +43,7 @@ Implementation Details
 
 ============================================================================================================================================
 
-Test Suite Completeness
+### Test Suite Completeness
 
 I believe my test suite is complete as it covers various aspects of the shell's functionality, including external command execution, file display, and background process handling. Additionally, we conducted edge case testing to handle scenarios where command inputs may vary in complexity.
 
@@ -130,6 +133,26 @@ This is line 17 of myfile.txt.
 This is line 18 of myfile.txt.
 This is line 19 of myfile.txt.
 This is line 20 of myfile.txt.
+This is line 1 of myfile.txt.
+This is line 2 of myfile.txt.
+This is line 3 of myfile.txt.
+This is line 4 of myfile.txt.
+This is line 5 of myfile.txt.
+This is line 6 of myfile.txt.
+This is line 7 of myfile.txt.
+This is line 8 of myfile.txt.
+This is line 9 of myfile.txt.
+This is line 10 of myfile.txt.
+This is line 11 of myfile.txt.
+This is line 12 of myfile.txt.
+This is line 13 of myfile.txt.
+This is line 14 of myfile.txt.
+This is line 15 of myfile.txt.
+This is line 16 of myfile.txt.
+This is line 17 of myfile.txt.
+This is line 18 of myfile.txt.
+This is line 19 of myfile.txt.
+This is line 20 of myfile.txt.
 Press (enter) to continue || Any key + enter to finish: makefile  myfile.txt  README  shconfig	sshell	sshell.c
 d
 sshell> sshell> & pwd
@@ -152,4 +175,4 @@ ChatGPT. (Parse the external command line).
 And I have read many stack overflow resources, in order to get this final code.
 
 Thank you!
-Best Regards.
+Best Regards. 
